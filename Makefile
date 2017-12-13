@@ -16,6 +16,8 @@
 
 all: library
 	$(MAKE) -C src/Voronoi_Network
+	$(MAKE) -C src/Single_branch
+	$(MAKE) -C src/Bifurcation
 
 library: 
 	$(MAKE) -C include
@@ -31,14 +33,20 @@ clean:
 	$(RM) -r *~ *.log
 	$(MAKE) -C include clean
 	$(MAKE) -C src/Voronoi_Network clean
+	$(MAKE) -C src/Single_branch clean
+	$(MAKE) -C src/Bifurcation clean
 
 distclean: clean
 	$(RM) -r doc/*
 	$(MAKE) -C include distclean
-	$(MAKE) -C src/Voronoi_Network
+	$(MAKE) -C src/Voronoi_Network distclean
+	$(MAKE) -C src/Single_branch distclean
+	$(MAKE) -C src/Bifurcation distclean
 
 fast:
 	$(MAKE) -C include fastclean
 	$(MAKE) -C include
 	$(MAKE) -C src/Voronoi_Network fastclean
+	$(MAKE) -C src/Single_branch fastclean
+	$(MAKE) -C src/Bifurcation fastclean
 
